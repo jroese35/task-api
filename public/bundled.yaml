@@ -80,11 +80,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Task'
         '400':
-          description: Validation error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequest'
+          $ref: '#/components/responses/BadRequest'
         '404':
           description: Not found error
           content:
@@ -116,12 +112,6 @@ components:
           type: array
           items:
             type: string
-    BadRequest:
-      description: Invalid input
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ValidationError'
     NotFoundError:
       type: object
       properties:

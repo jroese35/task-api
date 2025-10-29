@@ -34,11 +34,7 @@ paths:
               schema:
                 $ref: ./components/schemas/Task.yaml
         '400':
-          description: Validation error
-          content:
-            application/json:
-              schema:
-                $ref: ./components/responses/BadRequest.yaml
+          $ref: ./components/responses/BadRequest.yaml
         '404':
           description: Not found error
           content:
