@@ -13,3 +13,35 @@ tags:
 paths:
   /tasks:
     $ref: paths/tasks.yaml
+  /tasks/{id}:
+    get:
+      summary: Get a Task by id
+      tags:
+        - Tasks
+      parameters:
+        - name: id
+          in: query
+          required: true
+          description: Unique Task identifier
+          schema:
+            type: integer
+            example: 1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./components/schemas/Task.yaml
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: ./components/responses/BadRequest.yaml
+        '404':
+          description: Not found error
+          content:
+            application/json:
+              schema:
+                $ref: ./components/responses/NotFoundError.yaml
